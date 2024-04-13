@@ -1,0 +1,19 @@
+.post-container {
+  border: 2px solid #527880;
+  background-color: #eef06a;
+  border-radius: 12px;
+  padding: 10px;
+  width: 30vw;
+  max-height: 20vh;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.post-container:hover {
+  max-height: 40vh;
+  z-index: 1;
+}
+
+.description-container {
+  overflow-y: scroll;
+}

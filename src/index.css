@@ -1,0 +1,22 @@
+.small-text {
+  font-size: 0.75em;
+}
+
+.medium-text {
+  font-size: 1em;
+}
+
+.large-text {
+  font-size: 1.25em;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  cursor: default;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
