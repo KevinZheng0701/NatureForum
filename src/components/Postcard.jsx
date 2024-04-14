@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./Postcard.css";
-import { supabase } from "../../server.js";
 import { Link } from "react-router-dom";
 
-const Postcard = () => {
-  useEffect;
+const Postcard = (props) => {
   return (
     <div className="post-container">
-      <Link to="/">
-        <h1>example</h1>
-        <h3>By: Kevin</h3>
-        <p className="description-container">Description</p>
+      <Link to={`/${props.id}`}>
+        <h1>{props.title}</h1>
+        <h3>By: {props.author}</h3>
+        <h5>Upvotes: {props.upvote}</h5>
+        <p className="description-container">{props.content}</p>
       </Link>
     </div>
   );

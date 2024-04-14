@@ -1,0 +1,53 @@
+.create-container {
+  border: 5px solid black;
+  width: 75vw;
+  height: 75vh;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-container h4 {
+  margin: 0px auto 0px 6px;
+}
+
+#title-input,
+#name-input,
+#content-input {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 95%;
+  border: 2px solid gray;
+  font-size: medium;
+}
+
+#title-input:focus,
+#name-input:focus,
+#content-input:focus {
+  background-color: rgb(225, 225, 225);
+}
+
+#content-input {
+  height: 20vh;
+  resize: none;
+}
+
+#create-button {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 10vw;
+  border-radius: 12px;
+}
+
+#create-button:hover {
+  cursor: pointer;
+  border-color: black;
+  background-color: rgb(225, 225, 225);
+}

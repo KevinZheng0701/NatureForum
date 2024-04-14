@@ -15,13 +15,14 @@
   color: black;
 }
 
-#search-input[type="text"]:focus {
+#search-input:focus {
   background-color: rgb(225, 225, 225);
 }
 
 #search-button {
   padding-top: 10px;
   padding-bottom: 10px;
+  margin-right: 5px;
   width: 10vw;
   border: 2px solid #667711;
   border-radius: 12px;
