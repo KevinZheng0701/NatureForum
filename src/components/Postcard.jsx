@@ -1,15 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Postcard.css";
 import { Link } from "react-router-dom";
 
 const Postcard = (props) => {
+  const [time, setTime] = useState({ hour: 0, day: 0 });
+  useEffect(() => {
+    const formatTime = () => {
+      const current = new Date();
+      const created = new Date(props.time);
+      const difference = current - created;
+      const hourDiff = Math.floor(difference / 3600000);
+      const dayDiff = Math.floor(hourDiff / 24);
+      setTime({ hour: hourDiff % 24, day: dayDiff });
+    };
+    formatTime(props.time);
+  }, [props.time]);
+
   return (
     <div className="post-container">
-      <Link to={`/${props.id}`}>
+      <Link to={`/post/${props.id}`}>
         <h1>{props.title}</h1>
-        <h3>By: {props.author}</h3>
-        <h5>Upvotes: {props.upvote}</h5>
-        <p className="description-container">{props.content}</p>
+        <h5>
+          {props.upvote} {props.upvote <= 1 ? "upvote" : "upvotes"}
+        </h5>
+        <p>
+          Posted {time.day} {time.day <= 1 ? "day" : "days"} and {time.hour}{" "}
+          {time.hour <= 1 ? "hour" : "hours"} ago
+        </p>
       </Link>
     </div>
   );

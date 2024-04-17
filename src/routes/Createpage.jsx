@@ -7,6 +7,8 @@ const Createpage = () => {
     title: "",
     author: "",
     content: "",
+    image: "",
+    secret: 0,
   });
 
   const handleInput = (e) => {
@@ -15,12 +17,24 @@ const Createpage = () => {
 
   const createPost = async (e) => {
     e.preventDefault();
+    if (input.secret < 100000) {
+      alert("Need a secret key with at least 6 digits without leading 0s");
+      return;
+    }
+    const imageUrlPattern =
+      /^(data:image\/(png|jpg|jpeg|gif|svg\+xml);base64,|https?:\/\/[^\s/$.?#].[^\s]*)$/i;
+    if (!imageUrlPattern.test(input.image)) {
+      alert("Please enter a valid image URL");
+      return;
+    }
     await supabase.from("Post").insert({
-      title: input.title,
-      author: input.author,
-      content: input.content,
+      title: input.title.trim(),
+      author: input.author.trim(),
+      content: input.content.trim(),
+      image: input.image,
+      secret: input.secret,
     });
-    setInput({ title: "", author: "", content: "" });
+    setInput({ title: "", author: "", content: "", image: "", secret: 0 });
     window.location = "/";
   };
 
@@ -48,6 +62,16 @@ const Createpage = () => {
           id="name-input"
           required
         />
+        <h4>Image URL:</h4>
+        <input
+          type="text"
+          name="image"
+          value={input.image}
+          placeholder="URL"
+          onChange={handleInput}
+          id="image-input"
+          required
+        />
         <h4>Description:</h4>
         <textarea
           name="content"
@@ -57,10 +81,21 @@ const Createpage = () => {
           id="content-input"
           required
         />
-        <br></br>
-        <button type="submit" id="create-button">
-          Post
-        </button>
+        <div className="secret-container">
+          <p>Add a secret key to your post:</p>
+          <input
+            type="number"
+            name="secret"
+            value={input.secret}
+            placeholder="Secret Key"
+            onChange={handleInput}
+            id="secret-input"
+            required
+          />
+          <button type="submit" id="create-button">
+            Post
+          </button>
+        </div>
       </form>
     </div>
   );

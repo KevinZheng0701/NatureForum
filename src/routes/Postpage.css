@@ -1,0 +1,38 @@
+.post-page {
+  width: 80vw;
+  margin-top: 15px;
+  height: auto;
+  min-height: 500px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  overflow-y: scroll;
+}
+
+#post-image {
+  width: 50vw;
+  height: auto;
+}
+
+#edit-button,
+#upvote-button {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 12px;
+}
+
+#upvote-button {
+  width: 15%;
+}
+
+#edit-button {
+  width: 100%;
+}
+
+#edit-button:hover,
+#upvote-button:hover {
+  cursor: pointer;
+  border-color: black;
+  background-color: rgb(225, 225, 225);
+}

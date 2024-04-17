@@ -1,7 +1,8 @@
 .create-container {
-  border: 5px solid black;
-  width: 75vw;
-  height: 75vh;
+  border: 5px solid #000000;
+  margin-top: 15px;
+  width: 80vw;
+  height: auto;
   min-height: 500px;
   display: flex;
   flex-direction: column;
@@ -15,22 +16,33 @@
 }
 
 .form-container h4 {
-  margin: 0px auto 0px 6px;
+  margin: 0px auto 3px 6px;
 }
 
 #title-input,
 #name-input,
-#content-input {
+#content-input,
+#image-input,
+#secret-input {
+  margin: 6px 0px 6px 0px;
   padding-top: 10px;
   padding-bottom: 10px;
   width: 95%;
   border: 2px solid gray;
   font-size: medium;
+  align-self: center;
+}
+
+#secret-input {
+  text-align: center;
+  height: 10px;
 }
 
 #title-input:focus,
 #name-input:focus,
-#content-input:focus {
+#content-input:focus,
+#image-input:focus,
+#secret-input:focus {
   background-color: rgb(225, 225, 225);
 }
 
@@ -39,10 +51,18 @@
   resize: none;
 }
 
+.secret-container {
+  display: flex;
+  width: 75%;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
 #create-button {
   padding-top: 10px;
   padding-bottom: 10px;
-  width: 10vw;
+  width: 50%;
   border-radius: 12px;
 }
 

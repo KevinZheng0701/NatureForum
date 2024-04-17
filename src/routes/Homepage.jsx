@@ -10,7 +10,6 @@ const Homepage = () => {
     const fetchPosts = async () => {
       try {
         const { data } = await supabase.from("Post").select();
-        console.log(data);
         setPostList(data);
       } catch (error) {
         console.log(error);
@@ -25,21 +24,38 @@ const Homepage = () => {
 
   return (
     <div className="home-container">
+      <div className="image-container">
+        <img id="background-image" src="../../../src/assets/background.jpeg" />
+      </div>
+      <div className="order-container">
+        <p>Order by</p>
+        <button id="popular-button">Popularity</button>
+        <button id="new-button">Newest</button>
+        <button id="old-button">Oldest</button>
+      </div>
       <div className="posts-container">
         {postList ? (
           postList.map((post) => (
             <Postcard
+              key={post.id}
               id={post.id}
               title={post.title}
               author={post.author}
               content={post.content}
+              time={post.created_time}
               upvote={post.upvote}
             />
           ))
         ) : (
           <>
             <p> Nothing posted here.</p>
-            <button onClick={navigateCreate}>Create a post</button>
+            <button
+              id="create-button"
+              onClick={navigateCreate}
+              style={{ width: "80%" }}
+            >
+              Create a post
+            </button>
           </>
         )}
       </div>

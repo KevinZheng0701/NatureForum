@@ -15,7 +15,7 @@ const Searchbar = () => {
     if (input.trim().length === 0) {
       return;
     }
-    navigate(`search/${input}`);
+    navigate(`view/${input}`);
     setInput("");
   };
 
