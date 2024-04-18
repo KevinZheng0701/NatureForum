@@ -1,12 +1,18 @@
 .post-container {
   border: 2px solid #527880;
-  background-color: #eef06a;
+  background-color: #58b36c;
   border-radius: 12px;
   padding: 10px;
   width: 200px;
   height: 200px;
   overflow-y: scroll;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.post-container:hover {
+  cursor: pointer;
+  background-color: #3ca433;
 }

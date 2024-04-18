@@ -5,6 +5,7 @@ import Homepage from "./routes/Homepage";
 import Createpage from "./routes/Createpage";
 import Postpage from "./routes/Postpage";
 import Editpage from "./routes/Editpage";
+import Viewpage from "./routes/Viewpage";
 
 const App = () => {
   return (
@@ -15,6 +16,8 @@ const App = () => {
         <Route path="/create" element={<Createpage />} />
         <Route path="/post/:id" element={<Postpage />} />
         <Route path="/edit/:id" element={<Editpage />} />
+        <Route path="view" element={<Viewpage />} />
+        <Route path="view/:query" element={<Viewpage />} />
       </Routes>
     </Router>
   );

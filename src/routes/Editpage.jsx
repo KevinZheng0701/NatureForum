@@ -58,7 +58,7 @@ const Editpage = () => {
         image: data.image,
       })
       .eq("id", id);
-    window.location = "/";
+    window.location = `/post/${id}`;
   };
 
   const deletePost = async (e) => {

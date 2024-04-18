@@ -9,7 +9,7 @@ const Homepage = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const { data } = await supabase.from("Post").select();
+        const { data } = await supabase.from("Post").select().limit(20);
         setPostList(data);
       } catch (error) {
         console.log(error);
@@ -25,14 +25,19 @@ const Homepage = () => {
   return (
     <div className="home-container">
       <div className="image-container">
-        <img id="background-image" src="../../../src/assets/background.jpeg" />
+        <img
+          id="background-image"
+          src="../../../src/assets/background.jpeg"
+          alt="background"
+        />
+        <div className="overlay">
+          <h1>Welcome to Nature Nexus</h1>
+          <h3>
+            Here you will find different posts of beautiful nature sights.
+          </h3>
+        </div>
       </div>
-      <div className="order-container">
-        <p>Order by</p>
-        <button id="popular-button">Popularity</button>
-        <button id="new-button">Newest</button>
-        <button id="old-button">Oldest</button>
-      </div>
+      <h3>Explore the wild</h3>{" "}
       <div className="posts-container">
         {postList ? (
           postList.map((post) => (
@@ -48,11 +53,11 @@ const Homepage = () => {
           ))
         ) : (
           <>
-            <p> Nothing posted here.</p>
+            <p> Nothing posted here yet. Come share your photos.</p>
             <button
               id="create-button"
               onClick={navigateCreate}
-              style={{ width: "80%" }}
+              style={{ width: "10%" }}
             >
               Create a post
             </button>
