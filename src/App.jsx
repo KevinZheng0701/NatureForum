@@ -6,6 +6,7 @@ import Createpage from "./routes/Createpage";
 import Postpage from "./routes/Postpage";
 import Editpage from "./routes/Editpage";
 import Viewpage from "./routes/Viewpage";
+import Notfoundpage from "./routes/Notfoundpage";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/edit/:id" element={<Editpage />} />
         <Route path="view" element={<Viewpage />} />
         <Route path="view/:query" element={<Viewpage />} />
+        <Route path="*" element={<Notfoundpage />} />
       </Routes>
     </Router>
   );

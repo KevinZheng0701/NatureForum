@@ -2,36 +2,35 @@ import React, { useState, useEffect } from "react";
 import "./Postpage.css";
 import { supabase } from "../../server.js";
 import { useParams } from "react-router-dom";
+import Notfoundpage from "./Notfoundpage.jsx";
+import Comment from "../components/Comment.jsx";
 
 const Postpage = () => {
   const { id } = useParams();
-  const [postDetails, setPostDetails] = useState({
-    title: "",
-    author: "",
-    content: "",
-    image: "",
-    time: "",
-    upvote: 0,
-  });
+  const [postDetails, setPostDetails] = useState(null);
 
   useEffect(() => {
     const fetchPost = async () => {
       const { data } = await supabase.from("Post").select().eq("id", id);
-      const date = new Date(data[0].created_time);
-      const formattedDate = date.toLocaleDateString("en-US");
-      setPostDetails({
-        title: data[0].title,
-        author: data[0].author,
-        content: data[0].content,
-        image: data[0].image,
-        time: formattedDate,
-        upvote: data[0].upvote,
-      });
+      if (data && data.length > 0) {
+        const date = new Date(data[0].created_time);
+        const formattedDate = date.toLocaleDateString("en-US");
+        setPostDetails({
+          title: data[0].title,
+          author: data[0].author,
+          content: data[0].content,
+          image: data[0].image,
+          time: formattedDate,
+          upvote: data[0].upvote,
+        });
+      } else {
+        return;
+      }
     };
     fetchPost();
   }, [id]);
 
-  const handleEdit = (e) => {
+  const handleEdit = () => {
     window.location = `/edit/${id}`;
   };
 
@@ -45,7 +44,7 @@ const Postpage = () => {
 
   return (
     <div className="post-page">
-      {postDetails && (
+      {postDetails ? (
         <div>
           <h1>{postDetails.title}</h1>
           <p>Posted on {postDetails.time}</p>
@@ -61,7 +60,10 @@ const Postpage = () => {
           <button id="edit-button" onClick={handleEdit}>
             You are the publisher? Edit here
           </button>
+          <Comment id={id} />
         </div>
+      ) : (
+        <Notfoundpage />
       )}
     </div>
   );

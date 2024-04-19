@@ -1,8 +1,11 @@
 .searchbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin: 0 3px 0 5px;
+}
+
+.searchbar form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #search-input {
@@ -20,8 +23,7 @@
 }
 
 #search-button {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px 5px 10px 5px;
   margin-right: 5px;
   width: 10vw;
   border: 2px solid #667711;

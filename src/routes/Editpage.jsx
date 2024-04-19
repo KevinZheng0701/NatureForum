@@ -2,29 +2,28 @@ import React, { useState, useEffect } from "react";
 import "./Editpage.css";
 import { supabase } from "../../server.js";
 import { useParams } from "react-router-dom";
+import Notfoundpage from "./Notfoundpage.jsx";
 
 const Editpage = () => {
   const { id } = useParams();
   const [verfied, setVerified] = useState(false);
-  const [data, setData] = useState({
-    title: "",
-    author: "",
-    content: "",
-    image: "",
-    secret: 0,
-  });
-  const [secretInput, setSecretInput] = useState(0);
+  const [data, setData] = useState(null);
+  const [secretInput, setSecretInput] = useState("");
 
   useEffect(() => {
     const fetchPost = async () => {
       const { data } = await supabase.from("Post").select().eq("id", id);
-      setData({
-        title: data[0].title,
-        author: data[0].author,
-        content: data[0].content,
-        image: data[0].image,
-        secret: data[0].secret,
-      });
+      if (data && data.length > 0) {
+        setData({
+          title: data[0].title,
+          author: data[0].author,
+          content: data[0].content,
+          image: data[0].image,
+          secret: data[0].secret,
+        });
+      } else {
+        return;
+      }
     };
     fetchPost();
   }, [id]);
@@ -69,78 +68,82 @@ const Editpage = () => {
 
   return (
     <div className="edit-page">
-      {!verfied ? (
-        <div className="secret-container">
-          <form onSubmit={verifyKey} className="form-container">
-            <p>Your secret key:</p>
-            <input
-              type="text"
-              name="secret"
-              value={secretInput}
-              placeholder="Secret Key"
-              onChange={handleSecretInput}
-              id="secret-input"
-              required
-            />
-            <button type="submit" id="access-button">
-              Access Edit
-            </button>
-          </form>
-        </div>
+      {data ? (
+        !verfied ? (
+          <>
+            <form onSubmit={verifyKey} className="form-container">
+              <p>Your secret key:</p>
+              <input
+                type="text"
+                name="secret"
+                value={secretInput}
+                placeholder="Secret Key"
+                onChange={handleSecretInput}
+                id="secret-input"
+                required
+              />
+              <button type="submit" id="access-button">
+                Access Edit
+              </button>
+            </form>
+          </>
+        ) : (
+          <div className="edit-container">
+            <h2>Edit your post</h2>
+            <form onSubmit={updatePost} className="form-container">
+              <h4>Title of post:</h4>
+              <input
+                type="text"
+                name="title"
+                value={data.title}
+                placeholder="Title"
+                onChange={handleInput}
+                id="title-input"
+                required
+              />
+              <h4>Your name:</h4>
+              <input
+                type="text"
+                name="author"
+                value={data.author}
+                placeholder="Name"
+                onChange={handleInput}
+                id="name-input"
+                required
+              />
+              <h4>Image URL:</h4>
+              <input
+                type="text"
+                name="image"
+                value={data.image}
+                placeholder="URL"
+                onChange={handleInput}
+                id="image-input"
+                required
+              />
+              <h4>Description:</h4>
+              <textarea
+                name="content"
+                value={data.content}
+                placeholder="Share your thoughts"
+                onChange={handleInput}
+                id="content-input"
+                required
+              />
+              <br></br>
+              <div className="buttons-container">
+                <button submit="type" id="update-button">
+                  Update
+                </button>
+                <button onClick={deletePost} id="delete-button">
+                  Delete
+                </button>
+              </div>
+            </form>
+          </div>
+        )
       ) : (
-        <div className="edit-container">
-          <h2>Edit your post</h2>
-          <form onSubmit={updatePost} className="form-container">
-            <h4>Title of post:</h4>
-            <input
-              type="text"
-              name="title"
-              value={data.title}
-              placeholder="Title"
-              onChange={handleInput}
-              id="title-input"
-              required
-            />
-            <h4>Your name:</h4>
-            <input
-              type="text"
-              name="author"
-              value={data.author}
-              placeholder="Name"
-              onChange={handleInput}
-              id="name-input"
-              required
-            />
-            <h4>Image URL:</h4>
-            <input
-              type="text"
-              name="image"
-              value={data.image}
-              placeholder="URL"
-              onChange={handleInput}
-              id="image-input"
-              required
-            />
-            <h4>Description:</h4>
-            <textarea
-              name="content"
-              value={data.content}
-              placeholder="Share your thoughts"
-              onChange={handleInput}
-              id="content-input"
-              required
-            />
-            <br></br>
-            <div className="buttons-container">
-              <button submit="type" id="update-button">
-                Update
-              </button>
-              <button onClick={deletePost} id="delete-button">
-                Delete
-              </button>
-            </div>
-          </form>
-        </div>
+        <Notfoundpage />
       )}
     </div>
   );

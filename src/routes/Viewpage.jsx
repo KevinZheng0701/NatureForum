@@ -101,7 +101,7 @@ const Viewpage = () => {
         </button>
       </div>
       <div className="posts-container">
-        {filteredList ? (
+        {filteredList && filteredList.length > 0 ? (
           filteredList.map((post) => (
             <Postcard
               key={post.id}
@@ -114,7 +114,7 @@ const Viewpage = () => {
             />
           ))
         ) : (
-          <p> Nothing posted here.</p>
+          <p> Nothing found here.</p>
         )}
       </div>
     </div>

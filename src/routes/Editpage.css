@@ -1,6 +1,15 @@
-.edit-container {
+.edit-page {
   border: 5px solid black;
-  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: whitesmoke;
+  margin-top: 5%;
+}
+
+.edit-container {
   width: 80vw;
   height: auto;
   min-height: 500px;
