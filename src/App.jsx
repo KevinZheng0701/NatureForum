@@ -18,9 +18,9 @@ const App = () => {
         <Route path="/create" element={<Createpage />} />
         <Route path="/post/:id" element={<Postpage />} />
         <Route path="/edit/:id" element={<Editpage />} />
-        <Route path="view" element={<Viewpage />} />
-        <Route path="view/:query" element={<Viewpage />} />
-        <Route path="Explore" element={<Explorepage />} />
+        <Route path="/view" element={<Viewpage />} />
+        <Route path="/view/:query" element={<Viewpage />} />
+        <Route path="/explore" element={<Explorepage />} />
         <Route path="*" element={<Notfoundpage />} />
       </Routes>
     </Router>
