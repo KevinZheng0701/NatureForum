@@ -1,10 +1,10 @@
-# Web Development Final Project - _HobbyHub_
+# Web Development Final Project - _Nature Nexus_
 
 Submitted by: **Kevin Zheng**
 
-This web app: **insert description**
+This web app: **Nature Nexus is a forum where users can post pictures of nature to the website. Users can also edit and delete by providing the secret key that was made during creation. Users can also comment and upvote on the post that people created. Moreoever there is an explore section allowing users to find beautiful pictures using upsplash api.**
 
-Time spent: **12** hours spent in total
+Time spent: **14** hours spent in total
 
 ## Required Features
 

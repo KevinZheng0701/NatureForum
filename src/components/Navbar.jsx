@@ -17,6 +17,9 @@ const Navbar = () => {
           <Link to="view">
             <li>View posts</li>
           </Link>
+          <Link to="explore">
+            <li>Explore</li>
+          </Link>
         </div>
         <div className="search-bar">
           <Searchbar />

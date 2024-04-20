@@ -1,0 +1,47 @@
+.explore-container {
+  margin-top: 5%;
+}
+
+#explore-button {
+  padding: 10px 15px 10px 15px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+#explore-button:hover {
+  cursor: pointer;
+  border-color: black;
+  background-color: rgb(225, 225, 225);
+}
+
+.image-list {
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border: 5px solid rgb(192, 245, 192);
+  padding: 20px;
+}
+
+#image-item {
+  width: 300px;
+  height: auto;
+}
+
+.photographer {
+  font-size: large;
+  padding: 10px;
+}
+
+#photographer-link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#website-link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
