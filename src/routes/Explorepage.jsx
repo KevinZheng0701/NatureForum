@@ -14,15 +14,29 @@ const Explorepage = () => {
       setImageList(json);
     } catch (error) {
       console.log("Error fetching: ", error);
+      alert("Maxiumun api calls made!");
     }
   };
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 950,
+      behavior: "smooth",
+    });
+  }, [imageList]);
+
   return (
     <div className="explore-container">
-      <h2>Explore the nature</h2>
-      <button id="explore-button" onClick={fetchImages}>
-        Explore
-      </button>
+      <div className="image-container">
+        <img id="background-image" src="nature.jpeg" alt="Background Image" />
+        <div className="overlay">
+          <h1>Explore the nature</h1>
+          <h3>You can find random nature images here.</h3>
+          <button id="explore-button" onClick={fetchImages}>
+            Explore
+          </button>
+        </div>
+      </div>
       {imageList.length > 0 && (
         <div className="image-list">
           {imageList.map((image) => (

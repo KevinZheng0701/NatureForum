@@ -27,8 +27,8 @@ const Homepage = () => {
       <div className="image-container">
         <img
           id="background-image"
-          src="../../../src/assets/background.jpeg"
-          alt="background"
+          src="background.jpeg"
+          alt="Background Image"
         />
         <div className="overlay">
           <h1>Welcome to Nature Nexus</h1>

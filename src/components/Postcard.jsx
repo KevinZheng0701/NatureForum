@@ -23,8 +23,7 @@ const Postcard = (props) => {
 
   return (
     <div className="post-container" onClick={handleClick}>
-      <h1>{props.title}</h1>
-
+      <h3>{props.title}</h3>
       <p>
         Posted {time.day} {time.day <= 1 ? "day" : "days"} and {time.hour}{" "}
         {time.hour <= 1 ? "hour" : "hours"} ago

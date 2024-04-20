@@ -1,17 +1,36 @@
 .explore-container {
-  margin-top: 5%;
+  width: 100%;
+}
+
+.image-container {
+  position: relative;
+  top: 0;
+  width: 100vw;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 55%;
+  left: 15%;
+  text-align: center;
+  color: white;
+  z-index: 1;
 }
 
 #explore-button {
   padding: 10px 15px 10px 15px;
   border-radius: 12px;
   margin-bottom: 10px;
+  border: 2px solid skyblue;
+  color: white;
+  background-color: rgba(114, 249, 188, 0.25);
 }
 
 #explore-button:hover {
   cursor: pointer;
-  border-color: black;
-  background-color: rgb(225, 225, 225);
+  border-color: blanchedalmond;
+  background-color: rgba(25, 81, 55, 0.25);
 }
 
 .image-list {
@@ -22,8 +41,9 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-  border: 5px solid rgb(192, 245, 192);
+  border: 8px solid rgb(192, 245, 192);
   padding: 20px;
+  background-color: rgba(210, 242, 210, 0.9);
 }
 
 #image-item {

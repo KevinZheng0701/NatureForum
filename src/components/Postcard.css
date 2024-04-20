@@ -1,6 +1,6 @@
 .post-container {
   border: 2px solid #527880;
-  background-color: #58b36c;
+  background-color: #468cc249;
   border-radius: 12px;
   padding: 10px;
   width: 200px;
@@ -13,5 +13,5 @@
 
 .post-container:hover {
   cursor: pointer;
-  background-color: #3ca433;
+  background-color: #789ebbab;
 }

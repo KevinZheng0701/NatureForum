@@ -24,7 +24,7 @@ const Createpage = () => {
     const imageUrlPattern =
       /^(data:image\/(png|jpg|jpeg|gif|svg\+xml);base64,|https?:\/\/[^\s/$.?#].[^\s]*)$/i;
     if (!imageUrlPattern.test(input.image)) {
-      alert("Please enter a valid image URL");
+      alert("Image URL not supported");
       return;
     }
     await supabase.from("Post").insert({
