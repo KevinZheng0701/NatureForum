@@ -3,7 +3,7 @@ import "./Explorepage.css";
 const UPSPLASH_KEY = import.meta.env.VITE_UPSPLASH_ACCESS_KEY;
 
 const Explorepage = () => {
-  const [imageList, setImageList] = useState([]);
+  const [imageList, setImageList] = useState(null);
 
   const fetchImages = async () => {
     try {
@@ -19,10 +19,12 @@ const Explorepage = () => {
   };
 
   useEffect(() => {
-    window.scrollTo({
-      top: 950,
-      behavior: "smooth",
-    });
+    if (imageList) {
+      window.scrollTo({
+        top: 950,
+        behavior: "smooth",
+      });
+    }
   }, [imageList]);
 
   return (
@@ -37,7 +39,7 @@ const Explorepage = () => {
           </button>
         </div>
       </div>
-      {imageList.length > 0 && (
+      {imageList && (
         <div className="image-list">
           {imageList.map((image) => (
             <div key={image.id}>

@@ -35,13 +35,13 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you added to improve the site's functionality!
+- [x] An explore page that utilizes an API to display various nature pictures.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-Link:
+Link: https://imgur.com/2BFMGs7
 
 <!-- Replace this with whatever GIF tool you used! -->
 
@@ -54,7 +54,7 @@ GIF created with Kap
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Have challenges finding a good api to use. The most popular one limits the calls to 30 times per hour.
 
 ## License
 
